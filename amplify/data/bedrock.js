@@ -1,36 +1,40 @@
 export function request(ctx) {
   const { ingredients = [] } = ctx.args;
 
-  const prompt = `Suggest a recipe idea using these ingredients: ${ingredients.join(", ")}.`;
+  const prompt = `Suggest a recipe using these ingredients: ${ingredients.join(", ")}`;
 
   return {
-    resourcePath: "/model/global.anthropic.claude-sonnet-4-6/invoke",
+    resourcePath: "/model/amazon.nova-micro-v1:0/invoke",
     method: "POST",
     params: {
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        anthropic_version: "bedrock-2023-05-31",
-        max_tokens: 1000,
         messages: [
           {
             role: "user",
             content: [
               {
-                type: "text",
-                text: prompt
-              }
-            ]
-          }
-        ]
-      })
-    }
+                text: prompt,
+              },
+            ],
+          },
+        ],
+        inferenceConfig: {
+          maxTokens: 512,
+          temperature: 0.7,
+          topP: 0.9,
+        },
+      }),
+    },
   };
 }
 
 export function response(ctx) {
+  const parsedBody = JSON.parse(ctx.result.body);
+
   return {
-    body: ctx.result.body
+    body: parsedBody.output.message.content[0].text,
   };
 }

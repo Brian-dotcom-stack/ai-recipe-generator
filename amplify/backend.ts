@@ -22,6 +22,6 @@ const bedrockDataSource = backend.data.resources.graphqlApi.addHttpDataSource(
 bedrockDataSource.grantPrincipal.addToPrincipalPolicy(
   new PolicyStatement({
     actions: ["bedrock:InvokeModel"],
-    resources: ["*"],
+    resources: ["arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-micro-v1:0"],
   })
 );
