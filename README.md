@@ -4,6 +4,21 @@ An AI-powered recipe generation application built with React, TypeScript, and AW
 
 ---
 
+## ☁️ AWS Deployment Notes
+
+**Region:** us-east-1 (N. Virginia)
+
+**AWS Services Used:**
+
+* AWS Amplify Hosting
+* AWS Amplify Gen 2
+* Amazon Cognito
+* AWS AppSync
+* Amazon Bedrock
+* Amazon Nova Micro
+
+---
+
 ## 📸 Screenshots
 
 ### 1. Create Account
@@ -153,6 +168,8 @@ Planned features and enhancements include:
 - [ ] Multi-language support
 
 ---
+
+
 
 ## 👨‍💻 Author
 
