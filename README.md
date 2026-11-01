@@ -1,75 +1,168 @@
-# React + TypeScript + Vite
+# AI Recipe Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An AI-powered recipe generation application built with React, TypeScript, and AWS services. Users can enter ingredients they have available and generate recipe ideas using Amazon Bedrock and Amazon Nova Micro.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📸 Screenshots
 
-## React Compiler
+### 1. Create Account
+![Login Form](./screenshots/login-form.png)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 2. Authentication
+![Authentication](./screenshots/authentication.png)
 
-## Expanding the ESLint configuration
+### 3. Sign In
+![Sign In](./screenshots/sign-in.png)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 4. Recipe Generator
+![Recipe Generator](./screenshots/recipe-generator.png)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 5. Generated Recipe
+![Generated Recipe](./screenshots/generated-recipe.png)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### 6. Amazon Bedrock (Nova Micro)
+![Bedrock](./screenshots/bedrock.png)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 6. Amazon Bedrock Playground
+![Bedrock Playground](./screenshots/bedrock-playground.png)
 
+### 7. AWS Amplify Hosting
+![Amplify Hosting](./screenshots/amplify-hosting.png)
+
+### 8. Architecture Diagram
+![Architecture Diagram](./screenshots/architecture-diagram.png)
+
+---
+
+## 🔧 Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Brian-dotcom-stack/ai-recipe-generator.git
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Navigate to the project directory
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+cd ai-recipe-generator
 ```
+
+### 3. Install dependencies
+
+```bash
+npm install
+```
+
+### 4. Start the AWS Amplify sandbox
+
+```bash
+npx ampx sandbox
+```
+
+### 5. Run the application locally
+
+```bash
+npm run dev
+```
+
+### 6. Build for production
+
+```bash
+npm run build
+```
+
+---
+
+## 🔐 Authentication
+
+This application uses **Amazon Cognito** to provide secure user authentication, including:
+
+- User registration
+- Email verification
+- Secure sign-in
+- User session management
+
+Only authenticated users can access the recipe generation functionality.
+
+---
+
+## 🤖 AI Recipe Generation
+
+Recipes are generated using **Amazon Bedrock** powered by **Amazon Nova Micro**.
+
+Users can enter ingredients they already have available.
+
+**Example input:**
+
+```text
+Chicken, Rice, Tomatoes
+```
+
+The AI generates:
+
+- Recipe title
+- Ingredients list
+- Step-by-step cooking instructions
+
+---
+
+## ☁️ AWS Services & Technologies
+
+The project uses the following AWS services and technologies:
+
+| Service | Purpose |
+|---|---|
+| AWS Amplify Gen 2 | Application backend and infrastructure |
+| AWS Amplify Hosting | Application hosting and deployment |
+| Amazon Cognito | User authentication |
+| AWS AppSync | GraphQL API |
+| Amazon Bedrock | Generative AI integration |
+| Amazon Nova Micro | AI recipe generation |
+| AWS IAM | Identity and access management |
+| React | Frontend application |
+| TypeScript | Type-safe application development |
+
+---
+
+## 🧠 What I Learned
+
+Through developing this project, I gained practical experience with:
+
+- AWS Amplify Gen 2 and backend configuration
+- Authentication and user management with Amazon Cognito
+- Building GraphQL APIs using AWS AppSync
+- Integrating generative AI using Amazon Bedrock
+- Working with Amazon Nova Micro foundation models
+- Managing IAM permissions and AWS security
+- CI/CD deployments using AWS Amplify Hosting
+- Building modern applications with React and TypeScript
+
+---
+
+## 📈 Future Improvements
+
+Planned features and enhancements include:
+
+- [ ] Save favourite recipes
+- [ ] Recipe generation history
+- [ ] Nutritional information
+- [ ] Recipe sharing functionality
+- [ ] AI-generated recipe images
+- [ ] Multi-language support
+
+---
+
+## 👨‍💻 Author
+
+**Brian Mbevi**
+
+- **GitHub:** [Brian-dotcom-stack](https://github.com/Brian-dotcom-stack)
+- **LinkedIn:** [Brian Mbevi](https://www.linkedin.com/in/brian-mbevi-8762a4113)
+
+---
+
+## 📜 License
+
+This project is provided for educational and portfolio purposes.
